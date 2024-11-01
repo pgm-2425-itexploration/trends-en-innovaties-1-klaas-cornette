@@ -13,6 +13,7 @@
     "bcrypt": "^5.1.1",
     "js-cookie": "^3.0.5",
     "meteor-node-stubs": "^1.2.5",
+    "mongodb": "^6.10.0",
     "postcss": "^8.4.47",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

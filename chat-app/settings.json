@@ -1,7 +1,7 @@
 {
   "galaxy.meteor.com": {
     "env": {
-      "MONGO_URL": "mongodb+srv://klaascornette:C0rnetje5230%21@db.dmwco.mongodb.net/db?retryWrites=true&w=majority",
+      "MONGO_URL": "mongodb+srv://klaascornette:C0rnetje5230%21@db.dmwco.mongodb.net/db",
       "ROOT_URL": "https://chat-app-tutorial-klaas-cornette.meteorapp.com"
     }
   }
