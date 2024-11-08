@@ -3,8 +3,16 @@ import { check } from "meteor/check";
 
 import { Meteor } from "meteor/meteor";
 import { Mongo } from "meteor/mongo";
+import dotenv from "dotenv";
 
+dotenv.config();
 export const Messages = new Mongo.Collection("messages");
+
+Meteor.startup(() => {
+    console.log("Server started");
+    console.log(process.env.port);
+    console.log(process.env.MONGO_URL);
+})
 
 
 Meteor.methods({

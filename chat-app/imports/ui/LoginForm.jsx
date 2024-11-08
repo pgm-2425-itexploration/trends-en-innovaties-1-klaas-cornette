@@ -37,6 +37,10 @@ export const LoginForm = () => {
     });
   };
 
+  const routeChange = () => {
+    //window.location.href = '/';
+  }
+
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <form onSubmit={submit} className="bg-white p-8 rounded shadow-md w-96">
@@ -75,6 +79,7 @@ export const LoginForm = () => {
             type="submit"
             disabled={loading}
             className="bg-blue-600 text-white p-2 rounded w-full hover:bg-blue-700"
+            onClick={routeChange}
           >
             {loading ? 'Logging In...' : 'Log In'}
           </button>
