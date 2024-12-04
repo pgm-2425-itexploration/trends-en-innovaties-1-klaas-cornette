@@ -26,7 +26,7 @@ export const App = () => {
                     <>
                         {/* Toon de knoppen om in te loggen of te registreren  */}
                         <button className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg mb-4 hover:bg-blue-600 transition duration-300 mr-1">
-                            <a href="/registren">Registreren</a>
+                            <a href="/register">Registreren</a>
                         </button>
                         <button className="bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-400 transition duration-300 ml-1">
                             <a href="/login">Inloggen</a>
