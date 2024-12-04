@@ -7,8 +7,11 @@ import { useTracker } from "meteor/react-meteor-data";
 import { App } from "./App";
 
 const AppRoutes = () => {
+    // Haal de huidige gebruiker op met behulp van useTracker
     const user = useTracker(() => Meteor.user());
+    // Functie om uit te loggen
     const handleLogout = () => {
+        // Log de gebruiker uit en geef een melding als het uitloggen is mislukt
         Meteor.logout((error) => {
             if (error) {
                 console.error("Logout failed: ", error);
@@ -19,6 +22,7 @@ const AppRoutes = () => {
         });
     };
     return (
+        // Voeg de navigatiebalk toe en de routes voor de verschillende pagina's met juiste styling
         <Router>
             <nav className="bg-blue-500 p-4">
                 <div className="container mx-auto flex justify-between items-center">

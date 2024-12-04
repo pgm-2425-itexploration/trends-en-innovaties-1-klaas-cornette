@@ -10,6 +10,7 @@ export const LoginForm = () => {
 
 
   const submit = async (e) => {
+    // Voorkom dat de pagina herlaad bij het indienen van het formulier
     e.preventDefault();
     setError('');
     setLoading(true); // Start loading
@@ -22,32 +23,33 @@ export const LoginForm = () => {
       return;
     }
 
+    // Log de gebruiker in met de ingevoerde gegevens en geef een melding als het inloggen is mislukt 
     Meteor.loginWithPassword(email, password, (err) => {
       setLoading(false); 
       if (err) {
         setError(err.reason);
       } else {
-
-        Cookies.set('userEmail', email, { expires: 1/24 }); 
+        // zet de gebruikersnaam in een cookie en stuur de gebruiker naar de chatpagina
+        Cookies.set('userEmail', email, { expires: 1/24 }); // cookie voor 1 uur
         setEmail('');
         setPassword('');
         setError('');
-        
+        window.location.href = '/';
       }
-    });
+    })
+    
   };
 
-  const routeChange = () => {
-    //window.location.href = '/';
-  }
-
+  
   return (
+    // Formulier voor het inloggen met de juiste opmaak en styling 
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <form onSubmit={submit} className="bg-white p-8 rounded shadow-md w-96">
         <h2 className="text-xl font-bold mb-4 text-center">Log In</h2>
-
+        {/* Toon een foutmelding als het inloggen is mislukt */}
         {error && <div className="mb-4 text-red-500">{error}</div>}
 
+        {/* invulveld voor het e-mailadres */}
         <div className="mb-4">
           <label className="block text-gray-700">Email</label>
           <input
@@ -61,6 +63,7 @@ export const LoginForm = () => {
           />
         </div>
 
+        {/* invulveld voor het wachtwoord */}
         <div className="mb-4">
           <label className="block text-gray-700">Password</label>
           <input
@@ -75,11 +78,11 @@ export const LoginForm = () => {
         </div>
 
         <div>
+          {/* knop om in te loggen en de indicatie als de applicatie aan het laden is */}
           <button
             type="submit"
             disabled={loading}
             className="bg-blue-600 text-white p-2 rounded w-full hover:bg-blue-700"
-            onClick={routeChange}
           >
             {loading ? 'Logging In...' : 'Log In'}
           </button>
